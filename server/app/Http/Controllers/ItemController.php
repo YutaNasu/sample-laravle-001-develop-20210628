@@ -16,7 +16,7 @@ class ItemController extends Controller
 
     public function list()
     {
-        $itemList = [];
+        $itemList = ['list_name'];
         return view('admin/item/list', compact('itemList'));
     }
 }

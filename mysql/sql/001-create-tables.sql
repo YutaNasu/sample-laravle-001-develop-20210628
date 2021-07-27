@@ -19,7 +19,7 @@ CREATE TABLE `User` (
   `user_id` int(11) NOT NULL,
   `username` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
   `street_address` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `te_number` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel_number` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail_address` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `User`
@@ -27,25 +27,25 @@ ALTER TABLE `User`
 ALTER TABLE `User`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 
-DROP TABLE IF EXISTS `History2`;
-CREATE TABLE `History2` (
+DROP TABLE IF EXISTS `History`;
+CREATE TABLE `History` (
   `order_number` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `uaer_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `total_money` int(11) NOT NULL,
   `total_count` int(11) NOT NULL,
   `buy_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-ALTER TABLE `HisHistory2tory`
+ALTER TABLE `History`
   ADD PRIMARY KEY (`order_number`);
-ALTER TABLE `History2`
+ALTER TABLE `History`
   MODIFY `order_number` int(11) NOT NULL AUTO_INCREMENT;
 
 DROP TABLE IF EXISTS `Product`;
 CREATE TABLE `Product` (
   `id` int(11) NOT NULL,
   `name` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pricae` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
   `date` date NOT NULL,
   `infomation` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(2048) COLLATE utf8mb4_unicode_ci NOT NULL
