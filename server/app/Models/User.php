@@ -4,32 +4,35 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
 
-class List2 extends Model {
-
-    protected $table = 'List2';
-
+class User extends Authenticatable
+{
     use HasFactory, Notifiable;
 
+    protected $table = 'User';
+
     /**
-     * 出品者情報
+     * ユーザー情報
      * @param $fillable
-     * @return int list2_id
+     * @return int user_id
      * @author nasu
      * @var array
      * @name index
      * @modifid 06/14
      */
     protected $fillable = [
-        'list2_id',
-        'list_name',
-        'office_name',
+        'user_id',
+        'username',
         'street_address',
         'tel_number',
         'mail_address',
-        'respons_name',
-        'review',
     ];
+
+    public function getAllUsers()
+    {
+        return parent::all();
+    }
+
 }

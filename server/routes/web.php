@@ -36,3 +36,5 @@ Route::get('/admin/item/edit', function() {
 });
 
 Route::get('/users', 'UserController@index');
+
+Route::post('/item/regist/update', 'ItemController@regist_update');

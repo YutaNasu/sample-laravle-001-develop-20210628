@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\List2 as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class List2 extends Authenticatable
+class Product extends Model
 {
+  protected $table = 'Product';
     use HasFactory, Notifiable;
 
     /**
@@ -21,32 +22,36 @@ class List2 extends Authenticatable
      * @modifid 06/14
      */
     protected $fillable = [
-        'list2_id',
-        'list_name',
-        'office_name',
-        'street_address',
-        'tel_number',
-        'mail_address',
-        'respons_name',
-        'review',
+        'id',
+        'name',
+        'price',
+        'date',
+        'informaition',
+        'image',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+    /*
+      The attributes that should be hidden for arrays.
+     
+      @var array
+     
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    
+      The attributes that should be cast to native types.
+     
+      @var array
+     
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-}
+    ];*/
+
+    public function newItem( $item )
+    {
+      $this->fill( $item );
+      $this->save();
+    }
+  }
